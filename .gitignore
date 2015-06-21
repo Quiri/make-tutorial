@@ -7,3 +7,5 @@ logs/
 downloads/
 aggs/
 notes
+*.gz
+results/
