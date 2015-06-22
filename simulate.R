@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 suppressMessages(library(wakefield))
 suppressMessages(library(magrittr))
 suppressMessages(library(optparse))

@@ -1,4 +1,5 @@
-#!/usr/bin/Rscript
+#!/usr/bin/env Rscript
+
 suppressMessages(library(data.table))
 suppressMessages(library(dplyr))
 suppressMessages(library(magrittr))
