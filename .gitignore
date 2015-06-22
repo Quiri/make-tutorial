@@ -9,3 +9,4 @@ aggs/
 notes
 *.gz
 results/
+*.swp
