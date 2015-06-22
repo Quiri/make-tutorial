@@ -2,7 +2,7 @@
 .PHONY: clean build servers
 .SECONDARY:
 
-ALLSERVER=toolbox1 toolbox2 toolbox3 toolbox4
+ALLSERVER=server1 server2 server3 server4
 EXCLUDE=
 SERVERS=$(filter-out $(EXCLUDE), $(ALLSERVER))
 CHECKWORD=RUSERROCK
@@ -14,6 +14,7 @@ DOWNLOADS_DIR=$(CACHE_DIR)/downloads
 LOGS_DIR=$(CACHE_DIR)/logs
 RESULTS_DIR=$(CACHE_DIR)/results
 
+SSH=$(ROOT_DIR)/ssh-config
 
 build: $(RESULTS_DIR)/agg.check
 
@@ -27,11 +28,11 @@ servers:
 
 $(DOWNLOADS_DIR)/%.foo.gz:
 	@mkdir -p '$(@D)'
-	scp '$*':data/serverlog.foo.txt.gz '$@'
+	scp -F $(SSH) '$*':data/serverlogs.foo.txt.gz '$@'
 
 $(DOWNLOADS_DIR)/%.bar.gz:
 	@mkdir -p '$(@D)'
-	scp '$*':data/serverlog.bar.txt.gz '$@'
+	scp -F $(SSH) '$*':data/serverlogs.bar.txt.gz '$@'
 
 $(LOGS_DIR)/%.txt: \
 		$(DOWNLOADS_DIR)/%.foo.gz \

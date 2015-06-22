@@ -4,8 +4,8 @@ suppressMessages(library(dplyr))
 suppressMessages(library(magrittr))
 suppressMessages(library(optparse))
 suppressMessages(library(readr))
-suppressMessages(library(bbbi))
 suppressMessages(library(RPostgreSQL))
+suppressMessages(library(devtools))
 
 
 options(warn = 2)
@@ -26,17 +26,15 @@ Sys.setlocale("LC_TIME", "C") %>% invisible
 
     )
   
-  arguments <- OptionParser(usage = "%prog [options] txtfile cutfile", option_list=options_list) %>%
+  arguments <- OptionParser(usage = "%prog [options] txtfile cutfile", 
+			    option_list=options_list) %>%
     parse_args(positional_arguments = 2)
   
-   
   opt <-  arguments$options
   args <- arguments$args
 
 ## ---- IMPORT
-
 server <- gsub(".*/(.*)\\..*","\\1", args[1])
-
 
 cat(server, ":", "imports data \n")
 logs <- read_log(args[1], col_names = TRUE, col_types = "cicc") %>% 
@@ -53,9 +51,10 @@ rm(logs, cut); garbcoll <- gc();
 ## ---- AGGREGATION
 cat(server, ":", "aggregates \n")
 raw <- data[, .N, .(Race, Military, Color, Month, State)
-	    ][, server := server]
+	    ][, Server := server]
 
 cat(server, ":", "inserts to DB \n")
+source_gist("e5020012446b5eb0fd97") # Source insertDB function
 conn <- dbConnect("PostgreSQL", db = opt$dbname)
 inserted <- insertDB(raw, conn, "raw")
 

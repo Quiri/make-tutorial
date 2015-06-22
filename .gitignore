@@ -10,3 +10,4 @@ notes
 *.gz
 results/
 *.swp
+*ssh-config
