@@ -41,5 +41,7 @@ cd tutorial
 make -j 4 build
 ```
 
+*Don't forget to halt the VMs when you are finished. Just `cd` into vm and run `vagrant halt`.*
+
 ### License
 FreeBSD License
