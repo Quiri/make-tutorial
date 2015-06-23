@@ -10,4 +10,4 @@ done;
 
 ln -f vm/ssh-config tutorial/ssh-config
 
-sudo -u postgres createdb fluffy
+sudo -u postgres createdb datakraken

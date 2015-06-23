@@ -6,7 +6,7 @@ ALLSERVER=server1 server2 server3 server4
 EXCLUDE=
 SERVERS=$(filter-out $(EXCLUDE), $(ALLSERVER))
 CHECKWORD=RUSERROCK
-DBNAME=toolkit
+DBNAME=datakraken
 
 ROOT_DIR=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 CACHE_DIR=.
