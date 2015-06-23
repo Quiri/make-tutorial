@@ -10,6 +10,7 @@ This repository was created to provide all the resources and the environment tha
 To run the Virtual Machines you need 
   1. [Virtual Box](https://www.virtualbox.org/wiki/Linux_Downloads) (Tested on version 4.3.10)
   2. [Vagrant](https://www.vagrantup.com/downloads.html) (Tested on version 1.7.2)
+  3. Make sure you virtualization is enabled in you BIOS (usually it is, but if you get an error, this might be a reason)
   
 Make sure your **make** is compatible with GNU make (which is usually the case on Debian).
 
@@ -23,3 +24,15 @@ Furthermore you need [R](www.r-project.org) and the following R packages:
   5. readr
   6. RPostgreSQL
   7. devtools
+  8. [wakefield](https://github.com/trinker/wakefield)
+
+### Usage
+#### Set up
+To setup the environment run:
+```bash
+sh prepare.sh
+```
+This should set up the Virtual Machines (4 server), generate some random data, then push the data to the servers. It will also create some ssh-config for the VMs and create a PostgreSQL database named *datakraken*.
+
+#### Run make
+Now to see make in process change 
