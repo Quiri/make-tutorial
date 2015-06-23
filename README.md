@@ -35,4 +35,11 @@ sh prepare.sh
 This should set up the Virtual Machines (4 server), generate some random data, then push the data to the servers. It will also create some ssh-config for the VMs and create a PostgreSQL database named *datakraken*.
 
 #### Run make
-Now to see make in process change 
+Now to see make in process change run:
+```bash
+cd tutorial
+make -j 4 build
+```
+
+### License
+FreeBSD License
