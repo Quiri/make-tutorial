@@ -1,5 +1,4 @@
 #!/usr/bin/make -f
-.PHONY: clean build servers
 .SECONDARY:
 
 ALLSERVER=server1 server2 server3 server4
@@ -15,13 +14,6 @@ LOGS_DIR=$(CACHE_DIR)/logs
 RESULTS_DIR=$(CACHE_DIR)/results
 
 SSH=$(ROOT_DIR)/ssh-config
-
-build: $(RESULTS_DIR)/agg.check
-
-clean: 
-	rm -rf $(DOWNLOADS_DIR)
-	rm -rf $(LOGS_DIR)
-	rm -rf $(RESULTS_DIR)
 
 servers:
 	@echo $(SERVERS)
